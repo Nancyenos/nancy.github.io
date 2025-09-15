@@ -89,4 +89,4 @@ This buils the definitions and wordlist into one gresource file that can be load
 
 Load the resulting list in GNOME Crosswords and check a few entries.
 
-![alt text](image.png)
+![alt text](/assets/images/myphoto.png)
