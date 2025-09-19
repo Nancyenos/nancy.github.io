@@ -10,6 +10,8 @@ date: 2025-09-15
 
 Swahili is widely spoken in East Africa yet often underrepresented in software. Crosswords are a fun way to learn vocabulary and celebrate language: so adding Swahili to GNOME Crosswords felt both useful and exciting.
 
+![alt text](/assets/image.png)
+
 **Data sources at a glance**
 
 - Word list: Hunspell Swahili dictionary (list for what words to include).
@@ -23,6 +25,7 @@ Swahili is widely spoken in East Africa yet often underrepresented in software. 
 - **def-extractor.py** (in tools/wiktionary-extractor/): filters Wiktionary entries and produces a clean, structured list with parts of speech, tags, and definitions.
 
 - **Meson/Ninja integration:** convenient targets like build-wordlist-defs for repeatable builds.
+![alt text](/assets/image-1.png)
 
 Initially, the extractor logic assumed certain directory layouts and enums. To support Swahili and future languages cleanly, Jonathan and I focused on making it configurable and separating paths from the code.
 
@@ -66,9 +69,12 @@ python3 tools/wiktionary-extractor/def-extractor.py \
         --word-lists-dir wordlist-tools/swahili \
         --output-dir swahili \
 ```
+![alt text](/assets/image-2.png)
+
 **Swahili: end‑to‑end workflow**
 
 Here’s the exact flow we used for Swahili:
+![alt text](/assets/image-3.png)
 
 - Drop in the Hunspell list \ Place the Swahili .dic  under word-lists/swahili/.
 
@@ -86,7 +92,11 @@ meson compile build-wordlist-gresource-xml
 meson compile build-wordlist-gresource
 ```
 This buils the definitions and wordlist into one gresource file that can be loaded in to crosswords.
+![alt text](/assets/image-4.png)
 
 Load the resulting list in GNOME Crosswords and check a few entries.
+```bash
+crosswords/_build
+```
 
 ![alt text](/assets/images/myphoto.png)
