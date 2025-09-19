@@ -10,7 +10,7 @@ date: 2025-09-15
 
 Swahili is widely spoken in East Africa yet often underrepresented in software. Crosswords are a fun way to learn vocabulary and celebrate language: so adding Swahili to GNOME Crosswords felt both useful and exciting.
 
-![Screenshot showing the Swahili word list configuration file open in a text editor. The config file includes fields such as DisplayName set to Swahili, Identifier set to swahili, Source set to sw_KE.dic, Importer set to wordnik, Locale set to sw, Definitions set to True, Visibility set to editor, MinLength set to 2, MaxLength set to 21, Threshold set to 50, and Alphabet set to ABCDEFGHIJKLMNOPQRSTUVWXYZ. The environment is a desktop workspace with a calm and focused tone, supporting language development tasks.]
+![alt text]({{ site.baseurl }}/assets/images/image-5.png)
 
 **Data sources at a glance**
 
@@ -31,7 +31,8 @@ Swahili is widely spoken in East Africa yet often underrepresented in software. 
 Initially, the extractor logic assumed certain directory layouts and enums. To support Swahili and future languages cleanly, Jonathan and I focused on making it configurable and separating paths from the code.
 
 What we changed and why
-1) **Config-first workflow (new .conf files)**
+
+- 1) **Config-first workflow (new .conf files)**
 
 We introduced per-language config files so each word list can declare:
 
@@ -75,6 +76,7 @@ python3 tools/wiktionary-extractor/def-extractor.py \
 **Swahili: end‑to‑end workflow**
 
 Here’s the exact flow we used for Swahili:
+
 ![alt text]({{ site.baseurl }}/assets/images/image-3.png)
 
 - Drop in the Hunspell list \ Place the Swahili .dic  under word-lists/swahili/.
@@ -100,4 +102,4 @@ Load the resulting list in GNOME Crosswords and check a few entries.
 crosswords/_build
 ```
 
-![alt text]({{ site.baseurl }}/assets/images/myphoto.png)
+![alt text]({{ site.baseurl }}/assets/images/image.png)
