@@ -79,13 +79,36 @@ Here’s the exact flow we used for Swahili:
 
 ![alt text]({{ site.baseurl }}/assets/images/image-3.png)
 
-- Drop in the Hunspell list \ Place the Swahili .dic  under word-lists/swahili/.
+- Dropped in the Hunspell list \ Placed the Swahili .dic  under word-lists/swahili/.
 
-- Point the config at your inputs \ Create configs/swahili.conf with the inputs, filters, and outputs you want.
- -
+- Pointed the config at our inputs \ Created configs/swahili.conf with the inputs, filters, and outputs you want.
+ 
+
+![alt text]({{ site.baseurl }}/assets/images/image-6.png)
  
 **Build & test**
-edit meson.buid to add in the sawhili wordlist
+
+Add your word list to the meson.build
+- 1. Open the file:
+```bash
+word-list-tools/word-lists/meson.build
+```
+2. Locate the section that defines the word lists:
+
+```bash
+
+# List of word lists to build
+word_lists = ['broda',
+              'player',
+              'test',
+              'wordnik',
+              'swahili']
+```
+
+Add your word list to this array (for example, 'swahili' above).
+
+Once your config file is added, run the following from the project root to generate the GResource files. 
+
 ```bash
 meson setup _build
 ninja -C _build
@@ -95,6 +118,7 @@ meson compile build-wordlist-gresource-xml
 meson compile build-wordlist-gresource
 ```
 This builds the definitions and wordlist into one gresource file that can be loaded in to crosswords.
+
 ![alt text]({{ site.baseurl }}/assets/images/image-4.png)
 
 Load the resulting list in GNOME Crosswords and check a few entries.
@@ -103,3 +127,7 @@ crosswords/_build
 ```
 
 ![alt text]({{ site.baseurl }}/assets/images/image.png)
+
+***Closing Thoughts**
+
+With a config-driven workflow and cleaner tooling, adding new languages to GNOME Crosswords is now much easier. Swahili is just the beginning — this approach can scale to other underrepresented languages too.
